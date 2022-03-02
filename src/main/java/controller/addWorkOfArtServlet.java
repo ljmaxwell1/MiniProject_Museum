@@ -15,13 +15,13 @@ import model.WorkOfArt;
  * Servlet implementation class AddWorkOfArtServlet
  */
 @WebServlet("/addWorkOfArtServlet")
-public class AddWorkOfArtServlet extends HttpServlet {
+public class addWorkOfArtServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddWorkOfArtServlet() {
+    public addWorkOfArtServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
