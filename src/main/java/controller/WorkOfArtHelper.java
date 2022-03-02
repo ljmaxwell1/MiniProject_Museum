@@ -14,7 +14,7 @@ import model.WorkOfArt;
 * Mar 1, 2022  
 */
 public class WorkOfArtHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MiniProect_Museum");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("museum");
 	
 	public void insertWorkOfArt(WorkOfArt woa) {
 		EntityManager em = emfactory.createEntityManager();
