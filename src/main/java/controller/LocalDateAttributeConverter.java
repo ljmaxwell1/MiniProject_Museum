@@ -11,7 +11,7 @@ import javax.persistence.Converter;
 * CIS175 - Spring 2022
 * Mar 1, 2022  
 */
-@Converter(autoApply = false)
+@Converter(autoApply = true)
 public class LocalDateAttributeConverter implements AttributeConverter<LocalDate, Date> {
 
 	@Override
