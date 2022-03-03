@@ -10,6 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import model.WorkOfArt;
 
 /**
+ *Larry J Maxwell - ljmaxwell1@dmacc.edu
+ *CIS175 - Spring 2022
+ *Mar 2, 2022
+ *
+ */
+
+/**
  * Servlet implementation class navigationServlet
  */
 @WebServlet("/navigationServlet")
