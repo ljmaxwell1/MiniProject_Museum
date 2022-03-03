@@ -66,5 +66,13 @@ public class WorkOfArtHelper {
 		return found;
 	}
 
+	public void updateWorkOfArt(WorkOfArt toUpdate) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(toUpdate);
+		em.getTransaction().commit();
+		em.close();
+	}
+
 	
 }

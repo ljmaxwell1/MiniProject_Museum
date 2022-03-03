@@ -59,7 +59,10 @@ public class NavigationServlet extends HttpServlet {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
 				WorkOfArt itemToEdit = dao.searchForItemById(tempId);
 				request.setAttribute("itemToEdit", itemToEdit);
-				path = "/edit-name.jsp";
+				request.setAttribute("month", itemToEdit.getDatePublished().getMonthValue());
+				request.setAttribute("day", itemToEdit.getDatePublished().getDayOfMonth());
+				request.setAttribute("year", itemToEdit.getDatePublished().getYear());
+				path = "/edit-work-of-art.jsp";
 			} catch (NumberFormatException e) {
 				System.out.println("Forgot to select an item");
 			}
