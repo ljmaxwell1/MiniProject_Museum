@@ -20,13 +20,13 @@ import model.WorkOfArt;
  * Servlet implementation class navigationServlet
  */
 @WebServlet("/navigationServlet")
-public class navigationServlet extends HttpServlet {
+public class NavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public navigationServlet() {
+    public NavigationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

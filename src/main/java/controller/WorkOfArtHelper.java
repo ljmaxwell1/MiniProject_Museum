@@ -23,7 +23,7 @@ import model.WorkOfArt;
  *
  */
 public class WorkOfArtHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("musuem");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("museum");
 	
 	public void insertWorkOfArt(WorkOfArt woa) {
 		EntityManager em = emfactory.createEntityManager();
