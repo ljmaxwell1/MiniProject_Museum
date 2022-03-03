@@ -1,4 +1,4 @@
-# MiniProect_Museum
+# MiniProject_Museum
 Week 6 Team Mini Project 
 Ancona, Timothy S
 Maxwell, Larry J
