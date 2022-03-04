@@ -12,29 +12,39 @@ import javax.servlet.http.HttpServletResponse;
 import model.WorkOfArt;
 
 /**
- * Servlet implementation class AddWorkOfArtServlet
+ * Servlet implementation class EditWorkOfArtServlet
  */
-@WebServlet("/addWorkOfArtServlet")
-public class addWorkOfArtServlet extends HttpServlet {
+@WebServlet("/editWorkOfArtServlet")
+public class EditWorkOfArtServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addWorkOfArtServlet() {
+    public EditWorkOfArtServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		WorkOfArtHelper helper = new WorkOfArtHelper();
 		String title = request.getParameter("title");
 		String medium = request.getParameter("medium");
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
 		String year = request.getParameter("year");
+		Integer tempId = Integer.parseInt(request.getParameter("id"));
 		
 		LocalDate ld;
 		try {
@@ -43,11 +53,14 @@ public class addWorkOfArtServlet extends HttpServlet {
 			ld = LocalDate.now();
 		}
 		
-		WorkOfArt toAdd = new WorkOfArt(title, medium, ld);
-		WorkOfArtHelper helper = new WorkOfArtHelper();
-		helper.insertWorkOfArt(toAdd);
+		WorkOfArt toUpdate = helper.searchForItemById(tempId);
+		toUpdate.setTitle(title);
+		toUpdate.setMedium(medium);
+		toUpdate.setDatePublished(ld);
 		
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		helper.updateWorkOfArt(toUpdate);
+		
+		getServletContext().getRequestDispatcher("/viewAllWorksOfArtServlet").forward(request, response);
 	}
 
 }

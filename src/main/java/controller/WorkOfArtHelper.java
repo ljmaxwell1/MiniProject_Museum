@@ -23,7 +23,7 @@ import model.WorkOfArt;
  *
  */
 public class WorkOfArtHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("musuem");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("museum");
 	
 	public void insertWorkOfArt(WorkOfArt woa) {
 		EntityManager em = emfactory.createEntityManager();
@@ -64,6 +64,14 @@ public class WorkOfArtHelper {
 		WorkOfArt found = em.find(WorkOfArt.class, idToEdit);
 		em.close();
 		return found;
+	}
+
+	public void updateWorkOfArt(WorkOfArt toUpdate) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(toUpdate);
+		em.getTransaction().commit();
+		em.close();
 	}
 
 	
